@@ -72,7 +72,7 @@ console.log(res3); // true
 console.log(typeof res3); // "boolean"
 
 
-let res4 =  // Допишіть код, необхідно використовувати змінні x і y
+let res4 = parseFloat(Boolean(x)) // Допишіть код, необхідно використовувати змінні x і y
 
 console.log(res4); // NaN
 

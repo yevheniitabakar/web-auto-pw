@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма Нового Користувача</title>
+</head>
+<body>
+
+    <fieldset>
+        <legend align="center">Новий користувач</legend>
+
+        <label for="fio">ПІБ:</label>
+        <input value="Name" type="text" data-form="ПІБ" class="text-data arr" id="fio" name="fio"
+            placeholder="Введіть ПІБ">
+
+        <label for="phone">Номер телефону:</label>
+        <input value="+380-00-000-0000" type="phone" data-form="Номер телефону" class="arr" id="phone" name="phone"
+            placeholder="+380-00-000-0000">
+
+        <label for="birthday">Дата народження:</label>
+        <input value="2020-02-02" type="date" data-form="Дата народження" class="arr" id="birthday" name="birthday">
+
+        <label for="email">Електронна пошта:</label>
+        <input value="softserve@softserve.com" type="email" data-form="Електронна пошта" class="arr" id="email"
+            name="email" placeholder="email@softserveinc.com">
+
+        <button type="button" class="btn" onclick="getUserData()">Отримати дані</button>
+    </fieldset>
+
+    <section>
+
+        <h2 class="header">Header</h2>
+        <p id='data'>DOM - document object model </p>
+        <span>Span</span>
+        <div>Invisible element</div>
+    </section>
+
+    <button id="btn">Add style</button>
+    <p>
+        <button id="btnAction">Action check Button</button>
+    </p>
+    <p id="message"></p>
+
+</body>
+</html>
+
+
+
+<script>
+//Task #1
+    function getUserData() {
+        const name = document.querySelector('input[name="fio"]').value
+        const phoneNumber = document.querySelector('input[name="phone"]').value
+        const dateOfBirth = document.querySelector('input[name="birthday"]').value
+        const emailAddress = document.querySelector('input[name="email"]').value
+
+        console.log("Name:", name)
+        console.log("Phone Number:", phoneNumber)
+        console.log("Date of Birth:", dateOfBirth)
+        console.log("Email Address:", emailAddress)
+    }
+
+    //Task #2
+    function addStyle() {
+        const header = document.querySelector('h2.header')
+        header.style.color = "red"
+        header.style.textDecoration = "underline"
+
+        const paragraph = document.getElementById('data')
+        paragraph.style.color = "brown"
+        paragraph.style.fontSize = "18px"
+        paragraph.style.fontFamily = "'Comic Sans MS', sans-serif"
+
+        header.style.color = "green"
+        header.style.fontStyle = "italic"
+
+        const div = document.querySelector('div')
+        div.style.display = "none"
+    }
+    document.getElementById('btn').addEventListener('click', addStyle)
+
+
+    //Task #3
+
+    const btnAction = document.getElementById('btnAction');
+    const buttonMessage = document.getElementById("buttonMessage")
+    
+    btnAction.addEventListener('click', () => {
+        message.textContent = "I was pressed!"
+    })
+    
+    btnAction.addEventListener('mouseover', () => {
+        message.textContent = "Mouse on me!"
+    })
+    
+    btnAction.addEventListener('mouseout', () => {
+        message.textContent = "Mouse is not on me!"
+    })
+
+    
+//Task #4
+    function addElementsInDOM() {
+        const article = document.createElement('article')
+        article.classList.add('article', 'postList')
+
+        const container = document.createElement('div')
+        container.id = 'container'
+
+        for (let i = 1; i <= 3; i++) {
+    
+            const paragraph = document.createElement('p')
+            paragraph.textContent = `Post ${i}`
+            container.appendChild(paragraph)
+        }
+        article.appendChild(container)
+        document.body.appendChild(article)
+    }
+
+    addElementsInDOM()
+    
+    
+</script>
